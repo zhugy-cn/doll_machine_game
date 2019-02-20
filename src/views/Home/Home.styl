@@ -1,0 +1,347 @@
+.home-page
+  background #4c2a52
+// 公共样式
+.zui-control__coin, .zui-control__btn,.zui-main__logo,.clip__circle,.clip__left,.clip__right,.nav__balance__icon,.nav__balance__add::after
+  background url('~_assets/images/sp_j.png') no-repeat
+  background-size 640px auto
+.zui-main
+  position absolute
+  top 0
+  left 0
+  right 0
+  bottom 0
+  background url('~_assets/images/mc_bg.jpg') top / contain no-repeat
+  // 头部logo
+  &__logo
+    position relative
+    z-index 19
+    width: 310px;
+    height: 80px;
+    margin: 0 auto;
+    background-position: 0 0;
+  // 导航
+  &__nav
+    display: flex;
+    padding: 34px 40px 0;
+    .nav__balance
+      display: flex;
+      align-items: center;
+      height: 44px;
+      padding: 0 10px
+      background: #ffe190;
+      border-radius: 50px;
+      &__icon
+        width: 24px;
+        height: 26px;
+        background-position: -422px -14px;
+      &__num
+        font-size: 24px;
+        font-weight: bold;
+        padding: 0 16px;
+        color: #af393c;
+      &__add
+        width: 36px;
+        height: 36px;
+        background: #f55274;
+        border-radius: 100%;
+        &::after
+          display: block;
+          content: "";
+          width: 36px;
+          height: 36px;
+          background-position: -514px -8px;
+  // 夹子
+  &__clip
+    position: absolute;
+    z-index 9
+    top: 56px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 120px;
+    height: 200px;
+    transition: transform 1s .5s linear;
+    &.active
+      transform: translate3d(0, 400px, 0);
+    .clip__line
+      position: absolute;
+      bottom: 100px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 8px;
+      height: 700px;
+      background url('~_assets/images/sp_rep.png') repeat-y 0 0;
+      background-size: 640px auto;
+    .clip__circle
+      position: absolute;
+      z-index: 3;
+      bottom: 72px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 38px;
+      height: 38px;
+      background-position: -316px -120px;
+    .clip__left,
+    .clip__right
+      position: absolute;
+      bottom: 0;
+      z-index: 2;
+      width: 56px;
+      height: 98px;
+      transition: transform .4s linear;
+    .clip__left
+      left: 0;
+      transform-origin: top right;
+      background-position: -382px -94px;
+      &.active
+        transform: rotate(26deg);
+    .clip__right
+      right: 0;
+      background-position: -474px -94px;
+      transform-origin: top left;
+      &.active
+        transform: rotate(-26deg);
+
+  // 商品区域
+  &__dolls
+    position: absolute;
+    z-index 2
+    top: 572px;
+    left: 27px;
+    right: 27px;
+    height: 194px;
+    overflow hidden
+  .dolls__list
+    height: 194px;
+  .dolls__item
+    position relative
+    float: left;
+    width: 196px;
+    height: 194px;
+    background: url('~_assets/images/nx_man.png') no-repeat 34px 0;
+    background-size: 640px auto;
+    &__catch
+      position: absolute;
+      z-index: 99
+      top: 572px;
+      left 216px
+      visibility hidden
+      transition: transform 1s .5s linear;
+      &.active
+        visibility: visible;
+        transform: translate3d(0, -400px, 0);
+      &.ani1
+        animation: doll1 .6s both;
+      &.ani2
+        animation: doll2 1s linear both;
+      .dolls__item__face
+        animation: doll_img_faces .4s step-start infinite;
+    &.catch
+      visibility hidden
+      opacity 0
+    &__face
+      position: absolute;
+      top: 20px;
+      left: 32px;
+      width: 140px;
+      height: 74px;
+      background: url('~_assets/images/nx_man.png') no-repeat 34px 0;
+      background-size: 640px auto;
+      &.face-1 
+        background-position:-162px -10px;
+      &.face-2
+        background-position:-348px -10px;
+      &.face-3 
+        background-position:-166px -100px;
+    &__goods
+      position: absolute;
+      top: 90px;
+      bottom: 10px
+      left: 0;
+      right: 0;
+      width: 130px;
+      margin: auto;
+      padding: 10px 0 7px
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: space-between
+      background: url('~_assets/images/sp_gift.png') no-repeat -180px -8px/640px auto;
+      .goods__img
+        height: 48px;
+      .goods__name
+        color: #f8c23f;
+        font-size: 20px;
+
+
+  // 洞
+  &___hole
+    position: absolute; 
+    top: 548px; 
+    left: 20px; 
+    right: 20px; 
+    width:0; 
+    height:220px; 
+    background: #000;
+    margin: auto;
+    &.hole_open
+      width 200px
+      height 220px
+      animation open 2s both
+  // 左右的闪光灯
+  [class*='zui-main__light--']
+    position absolute
+    top 200px
+    width 20px
+    height 400px
+    padding 40px 0
+    border-radius 20px
+    background #091a46
+  &__light
+    &--left
+      left 0
+    &--right
+      right 0
+    &__dot
+      display block
+      width 20px
+      height 400px
+      background url('~_assets/images/sp_rep.png') repeat-y -20px 0 / 640px auto
+      &.twinkle
+        background-position -52px 0
+// 底部控制
+.zui-control
+  position absolute
+  left 0
+  bottom 0
+  right 0
+  height 146px
+  background url('~_assets/images/bg_bot.png') center / cover no-repeat
+  &__hole
+    position absolute
+    left 40px
+    bottom 68px
+    width 240px
+    height 14px
+    border-radius 20px
+    background #980f1e
+  &__coin
+    position absolute
+    left 88px
+    bottom 70px
+    width 148px
+    height 90px
+    background-position 0 -204px
+    &.active
+      animation: fadeInBot 1s ease both;
+  &__cover
+    width: 240px;
+    height: 68px;
+    position: absolute;
+    left: 40px;
+    bottom: 0;
+    background url('~_assets/images/bg_bot.png')  no-repeat 0 -78px
+    background-size: 640px auto;
+  &__btn
+    position absolute
+    right 24px
+    bottom 30px
+    width 302px
+    height 106px
+    background-position 0 -96px
+    transition transform 0.1 linear
+    &.active
+      transform translate3d(0, 3px, 0)
+
+// toast
+.zui-toast
+  position: fixed
+  z-index 99
+  top: 300px;
+  left: 0;
+  right: 0
+  color: rgb(245,89,124)
+  font-size: 28px
+  text-align: center
+  
+
+@keyframes doll_img_faces {
+  0%,
+  31.3% {
+    background-position: -162px -10px;
+  }
+  34.3%,
+  65.6% {
+    background-position: -348px -10px;
+  }
+  68.6%,
+  100% {
+    background-position: -166px -100px;
+  }
+}
+
+@keyframes doll1
+  0%
+    transform  translate3d(0, -400px, 0) scale(1)
+  50%
+    transform  translate3d(0, -400px, 0) scale(1.2)
+  100%
+    transform  translate3d(0, -400px, 0) scale(0.6)
+
+@keyframes doll11 {
+  0% {
+    transform: translate3d(0, -400px, 0) rotate(0) scale(1);
+  }
+  100% {
+    transform: translate3d(200px, -540px, 0) rotate(1080deg) scale(0.2);
+  }
+}
+@keyframes doll2 {
+  0% {
+    transform: translate3d(0, -360px, 0) rotate(0) scale(1);
+  }
+  90% {
+    transform: translate3d(0, 0, 0) rotate(60deg) scale(0.8);
+    opacity: .8;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(60deg) scale(0.8);
+    opacity: 0;
+  }
+}
+// 洞动画
+@keyframes open
+  0%
+    width 0
+    transform perspective(300px) rotateX(74deg)
+  50%
+    width 200px
+    transform perspective(300px) rotateX(74deg)
+  100%
+    width 0
+    transform perspective(300px) rotateX(74deg)
+
+// 金币动画
+@keyframes fadeInBot {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(40px)
+  }
+}
+
+// toast动画
+.toast-fade-leave-active {
+  animation: fadeOut 0.4s;
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

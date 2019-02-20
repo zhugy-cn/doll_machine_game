@@ -40,8 +40,8 @@
           <div class="game-dialog__header">恭喜</div>
           <div class="game-dialog__body">恭喜获得抵用券</div>
           <div class="game-dialog__footer">
-            <div class="game-dialog__btn" @click="buttonClick('left')">立即使用</div>
-            <div class="game-dialog__btn" @click="buttonClick('right')">再来一局</div>
+            <div class="game-dialog__btn" v-click-zoom @click="buttonClick('left')">立即使用</div>
+            <div class="game-dialog__btn" v-click-zoom @click="buttonClick('right')">再来一局</div>
           </div>
         </div>
       </transition>
@@ -58,6 +58,8 @@
   </transition>
 </template>
 <script>
+import clickZoom from "@/directive/click-zoom";
+
 export default {
   props: ["open"],
   data() {
@@ -69,6 +71,9 @@ export default {
       isOpenActive: false, // 打开红包动画
       isOpen: false // 字体外层盒子动画
     };
+  },
+  directives: {
+    clickZoom
   },
   watch: {
     open(val) {
@@ -218,11 +223,12 @@ export default {
   height 240px
   margin auto
   overflow hidden
+  padding 0 40px
   &.active &__img
     &:nth-child(1)
-      animation move-text1 1.5s ease-out
+      animation move-text1 1.5s
     &:nth-child(2)
-      animation move-text2 1.5s ease-out
+      animation move-text2 1.5s
   &__img
     height 84px
     display block
@@ -379,7 +385,7 @@ export default {
     transform translate3d(0, 0, 0)
 @keyframes zui-text_out
   100%
-    transform scale(1.1)
+    transform scale(1.16)
     opacity 0.5
 // 打开红包动画
 @keyframes zui-main_in

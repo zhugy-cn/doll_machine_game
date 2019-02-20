@@ -8,7 +8,6 @@ import store from './stores/index'
 import 'amfe-flexible'
 import './assets/stylus/index.styl'
 
-
 Vue.config.productionTip = false
 
 new Vue({

@@ -1,4 +1,15 @@
+.mask
+  position fixed
+  z-index 9
+  top: 0
+  right: 0
+  bottom: 0
+  left 0
+  touch-action: none;
+
+
 .home-page
+  user-select: none
   background #4c2a52
 // 公共样式
 .zui-control__coin, .zui-control__btn,.zui-main__logo,.clip__circle,.clip__left,.clip__right,.nav__balance__icon,.nav__balance__add::after
@@ -37,7 +48,7 @@
       &__num
         font-size: 24px;
         font-weight: bold;
-        padding: 0 16px;
+        padding: 4px 16px 0;
         color: #af393c;
       &__add
         width: 36px;
@@ -118,7 +129,7 @@
   .dolls__item
     position relative
     float: left;
-    width: 196px;
+    width: 194px;
     height: 194px;
     background: url('~_assets/images/nx_man.png') no-repeat 34px 0;
     background-size: 640px auto;
@@ -303,11 +314,11 @@
     transform: translate3d(0, -360px, 0) rotate(0) scale(1);
   }
   90% {
-    transform: translate3d(0, 0, 0) rotate(60deg) scale(0.8);
+    transform: translate3d(0, 0, 0) rotate(60deg) scale(0.7);
     opacity: .8;
   }
   100% {
-    transform: translate3d(0, 0, 0) rotate(60deg) scale(0.8);
+    transform: translate3d(0, 0, 0) rotate(60deg) scale(0.5);
     opacity: 0;
   }
 }

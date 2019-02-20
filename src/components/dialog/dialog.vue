@@ -1,22 +1,40 @@
 <template>
   <transition name="zui-dialog-fade">
-    <div class="zui-dialog" v-show="visible">
-      <div class="zui-dialog__mask" @click="$emit('update:visible',false)"></div>
+    <div
+      class="zui-dialog"
+      v-show="visible"
+    >
+      <div
+        class="zui-dialog__mask"
+        @click="$emit('update:visible',false)"
+      ></div>
       <div class="game-dialog">
         <div class="game-dialog__header">提示</div>
         <div class="game-dialog__body">即将前往充值页面，是否确定？</div>
         <div class="game-dialog__footer">
-          <div class="game-dialog__btn" @click="$emit('update:visible',false)">继续游戏</div>
-          <div class="game-dialog__btn">立即前往</div>
+          <div
+            class="game-dialog__btn"
+            v-click-zoom
+            @click="$emit('update:visible',false)"
+          >继续游戏</div>
+          <div
+            class="game-dialog__btn"
+            v-click-zoom
+          >立即前往</div>
         </div>
       </div>
     </div>
   </transition>
 </template>
 <script>
+import clickZoom from "@/directive/click-zoom";
+
 export default {
   props: ["visible"],
   name: "zui-dialog",
+  directives: {
+    clickZoom
+  },
   data() {
     return {};
   }

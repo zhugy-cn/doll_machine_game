@@ -1,26 +1,13 @@
 <template>
   <transition name="zui-dialog-fade">
-    <div
-      class="zui-dialog"
-      v-show="visible"
-    >
-      <div
-        class="zui-dialog__mask"
-        @click="$emit('update:visible',false)"
-      ></div>
+    <div class="zui-dialog" v-show="visible">
+      <div class="zui-dialog__mask" @click="$emit('update:visible',false)"></div>
       <div class="game-dialog">
         <div class="game-dialog__header">提示</div>
         <div class="game-dialog__body">即将前往充值页面，是否确定？</div>
         <div class="game-dialog__footer">
-          <div
-            class="game-dialog__btn"
-            v-click-zoom
-            @click="$emit('update:visible',false)"
-          >继续游戏</div>
-          <div
-            class="game-dialog__btn"
-            v-click-zoom
-          >立即前往</div>
+          <div class="game-dialog__btn" v-click-zoom @click="$emit('update:visible',false)">继续游戏</div>
+          <div class="game-dialog__btn" v-click-zoom @click="jumpRecharge">立即前往</div>
         </div>
       </div>
     </div>
@@ -28,6 +15,7 @@
 </template>
 <script>
 import clickZoom from "@/directive/click-zoom";
+import { machine_url } from "@/config";
 
 export default {
   props: ["visible"],
@@ -35,8 +23,13 @@ export default {
   directives: {
     clickZoom
   },
-  data() {
-    return {};
+  methods: {
+    // 跳转充值
+    jumpRecharge() {
+      let { machine_id } = this.$route.params;
+      let url = machine_url + "?machineID=" + machine_id + "#/recharge";
+      location.href = url;
+    }
   }
 };
 </script>
@@ -58,7 +51,7 @@ export default {
 .game-dialog
   position absolute
   z-index 1
-  top -40px
+  top -10%
   left 0
   right 0
   bottom 0

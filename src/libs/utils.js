@@ -37,21 +37,6 @@ export function getQueryString(url) {
 	return theRequest;
 }
 
-// 操作成功
-export function success(ctx, text, fn, ops) {
-	ctx.$global.closeLoading();
-	ctx.$vux.toast.show({
-		text,
-		isShowMask: true,
-	});
-	setTimeout(() => {
-		ctx.$vux.toast.hide();
-		setTimeout(() => fn && fn(), 50);
-	}, ops || 350);
-}
-
-
-
 export function dealObjectValue(obj, arr) {
 	let params = {};
 	let whiteList = [null, undefined, '', NaN];

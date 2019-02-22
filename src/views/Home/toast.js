@@ -1,3 +1,4 @@
+let toastTimer = null;
 export default {
   data() {
     return {
@@ -7,9 +8,10 @@ export default {
   },
   methods: {
     showToast(msg) {
+      clearTimeout(toastTimer);
       this.toastMsg = msg;
       this.isToast = true
-      setTimeout(() => {
+      toastTimer = setTimeout(() => {
         this.isToast = false
       }, 2000)
     }

@@ -4,6 +4,7 @@ function resolve(dir) {
 }
 
 module.exports = {
+  baseUrl: './',
   css: {
     // 自动加载
     loaderOptions: {

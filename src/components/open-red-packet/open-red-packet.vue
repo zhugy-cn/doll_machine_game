@@ -1,6 +1,6 @@
 <template>
   <transition name="zui-fade">
-    <div v-show="open" class="game-success" :class="{'active': isCloud}">
+    <div v-show="visible" class="game-success" :class="{'active': isCloud}">
       <!-- 云 -->
       <div class="zui-cloud"></div>
       <!-- 光 -->
@@ -38,7 +38,7 @@
       <transition name="zui-main">
         <div class="game-dialog" v-show="isOpen">
           <div class="game-dialog__header">恭喜</div>
-          <div class="game-dialog__body">恭喜获得抵用券</div>
+          <div class="game-dialog__body">获得{{prizeInfo.name}}</div>
           <div class="game-dialog__footer">
             <div class="game-dialog__btn" v-click-zoom @click="buttonClick('left')">立即使用</div>
             <div class="game-dialog__btn" v-click-zoom @click="buttonClick('right')">再来一局</div>
@@ -59,9 +59,10 @@
 </template>
 <script>
 import clickZoom from "@/directive/click-zoom";
+import { machine_url } from "@/config";
 
 export default {
-  props: ["open"],
+  props: ["visible", "prizeInfo"],
   data() {
     return {
       isCloud: true, // 云动画
@@ -76,13 +77,14 @@ export default {
     clickZoom
   },
   watch: {
-    open(val) {
+    visible(val) {
       if (val) {
         this.startAni();
       }
     }
   },
   methods: {
+    // 动画开始
     startAni() {
       // 云动画
       this.isCloud = true;
@@ -117,9 +119,17 @@ export default {
     },
     buttonClick(type) {
       this.isOpen = false;
-      setTimeout(() => {
-        this.$emit("complete", type);
-      }, 100);
+      this.$emit("update:visible", false);
+      if (type === "left") {
+        this.jumpPlay();
+      }
+    },
+    // 跳转支付
+    jumpPlay() {
+      const { machine_id } = this.$route.params;
+      const { goods_id } = this.prizeInfo;
+      let url = `${machine_url}?machineID=${machine_id}#/pay?good_id=${goods_id}&count=1&machineID=${machine_id}`;
+      location.href = url;
     }
   }
 };

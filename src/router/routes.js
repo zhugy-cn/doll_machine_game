@@ -6,7 +6,7 @@ export default [
     redirect: '/home',
   },
   {
-    path: '/home',
+    path: '/home/:machine_id?',
     name: 'home',
     component: () => import(
       /* webpackChunkName: "Home" */

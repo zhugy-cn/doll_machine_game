@@ -1,91 +1,73 @@
 // 边框
-border-1px($type='around', $color = #ebebeb, $radius = 0, $style = solid)
-  position: relative
+border-1px($type = 'around', $color = #ebebeb, $radius = 0, $style = solid)
+  position relative
   &::after
-    content: ""
-    pointer-events: none
-    display: block
-    position: absolute
-    left: 0
-    top: 0
-    transform-origin: 0 0
-
-    if $type == 'around'
-      border: 1PX $style $color
-
-    else if $type == 'left-right'
-      border-left: 1PX $style $color
-      border-right: 1PX $style $color
-
-    else if $type == 'left-top'
-      border-left: 1PX $style $color
-      border-top: 1PX $style $color
-      
-    else if $type == 'left-bottom'
-      border-left: 1PX $style $color
-      border-bottom: 1PX $style $color
-
-    else if $type == 'top-right'
-      border-top: 1PX $style $color
-      border-right: 1PX $style $color
-      
-    else if $type == 'top-bottom'
-      border-top: 1PX $style $color
-      border-bottom: 1PX $style $color
-
-    else if $type == 'right-bottom'
-      border-right: 1PX $style $color
-      border-bottom: 1PX $style $color
-
-    else 
-      border: 1PX $style $color
-
-    border-radius: $radius
+    content ''
+    pointer-events none
+    display block
+    position absolute
+    left 0
+    top 0
+    transform-origin 0 0
+    if ($type == 'around')
+      border 1PX $style $color
+    else if ($type == 'left-right')
+      border-left 1PX $style $color
+      border-right 1PX $style $color
+    else if ($type == 'left-top')
+      border-left 1PX $style $color
+      border-top 1PX $style $color
+    else if ($type == 'left-bottom')
+      border-left 1PX $style $color
+      border-bottom 1PX $style $color
+    else if ($type == 'top-right')
+      border-top 1PX $style $color
+      border-right 1PX $style $color
+    else if ($type == 'top-bottom')
+      border-top 1PX $style $color
+      border-bottom 1PX $style $color
+    else if ($type == 'right-bottom')
+      border-right 1PX $style $color
+      border-bottom 1PX $style $color
+    else
+      border 1PX $style $color
+    border-radius $radius
     box-sizing border-box
     width 100%
     height 100%
     @media (min-resolution: 2dppx)
-      width: 200%
-      height: 200%
-      border-radius: $radius * 2
-      transform: scale(.5)
+      width 200%
+      height 200%
+      border-radius $radius * 2
+      transform scale(0.5)
     @media (min-resolution: 3dppx)
-      width: 300%
-      height: 300%
-      border-radius: $radius * 3
-      transform: scale(.333)
-
+      width 300%
+      height 300%
+      border-radius $radius * 3
+      transform scale(0.333)
 border-none()
   &::before
-    display: none
+    display none
   &::after
-    display: none
-
-
+    display none
 // flex 行布局
-flex-box-row($align-items=flex-start,$justify-content=flex-start)
-  display: flex
-  align-items: $align-items
-  justify-content: $justify-content
-
-
+flex-box-row($align-items = flex-start, $justify-content = flex-start)
+  display flex
+  align-items $align-items
+  justify-content $justify-content
 // flex 列布局
-flex-box-col($align-items=flex-start,$justify-content=flex-start)
-  display: flex
-  flex-direction: column
-  align-items: $align-items
-  justify-content: $justify-content
-  
-
+flex-box-col($align-items = flex-start, $justify-content = flex-start)
+  display flex
+  flex-direction column
+  align-items $align-items
+  justify-content $justify-content
 // 背景图片
 bg-image($url)
-  background-image: url($url + "@2x.png")
-  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
-    background-image: url($url + "@3x.png")
-
-
+  background-image url($url + '@2x.png')
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3)
+    background-image url($url + '@3x.png')
 // 垂直居中
 vertical-center()
   position absolute
-  top: 50%
-  transform: translateY(-50%)
+  top 50%
+  transform translateY(-50%)

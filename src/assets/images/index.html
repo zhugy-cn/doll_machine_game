@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<style>
+  .doll1 {
+    width: 194px;
+    height: 230px;
+    overflow: hidden;
+    background: url('./dolls/doll1/doll1@2x.png') center/contain no-repeat;
+  }
+
+  .doll1 .face {
+    width: 100%;
+    height: 60px;
+    margin-top: 53px;
+    animation: doll1-face-ani 2s step-start infinite;
+    background: url('./dolls/doll1/doll1_1@2x.png') center/contain no-repeat
+  }
+
+  .doll2 {
+    width: 194px;
+    height: 230px;
+    overflow: hidden;
+    background: url('./dolls/doll2/doll2@2x.png') center/contain no-repeat
+  }
+
+  .doll2 .face {
+    width: 100%;
+    height: 56px;
+    margin-top: 38px;
+    animation: doll2-face-ani 2s step-start infinite;
+    background: url('./dolls/doll2/doll2_1@2x.png') center/contain no-repeat
+  }
+
+  .doll3 {
+    width: 194px;
+    height: 230px;
+    overflow: hidden;
+    background: url('./dolls/doll3/doll3@2x.png') center/contain no-repeat
+  }
+
+  .doll3 .face {
+    width: 100%;
+    height: 60px;
+    margin-top: 42px;
+    animation: doll3-face-ani 2s step-start infinite;
+    background: url('./dolls/doll3/doll3_1@2x.png') center/contain no-repeat
+  }
+
+  .doll4 {
+    width: 194px;
+    height: 230px;
+    overflow: hidden;
+    background: url('./dolls/doll4/doll4@2x.png') center/contain no-repeat
+  }
+
+  .doll4 .face {
+    width: 100%;
+    height: 84px;
+    margin-top: 8px;
+    animation: doll4-face-ani 2s step-start infinite;
+    background: url('./dolls/doll4/doll4_3@2x.png') center/contain no-repeat
+  }
+
+  @keyframes doll1-face-ani {
+    33.33% {
+      background-image: url('./dolls/doll1/doll1_1@2x.png');
+    }
+
+    66.66% {
+      background-image: url('./dolls/doll1/doll1_2@2x.png');
+    }
+
+    100% {
+      background-image: url('./dolls/doll1/doll1_3@2x.png');
+    }
+  }
+
+  @keyframes doll2-face-ani {
+    33.33% {
+      background-image: url('./dolls/doll2/doll2_1@2x.png');
+    }
+
+    66.66% {
+      background-image: url('./dolls/doll2/doll2_2@2x.png');
+    }
+
+    100% {
+      background-image: url('./dolls/doll2/doll2_3@2x.png');
+    }
+  }
+
+  @keyframes doll3-face-ani {
+    33.33% {
+      background-image: url('./dolls/doll3/doll3_1@2x.png');
+    }
+
+    66.66% {
+      background-image: url('./dolls/doll3/doll3_2@2x.png');
+    }
+
+    100% {
+      background-image: url('./dolls/doll3/doll3_3@2x.png');
+    }
+  }
+
+  @keyframes doll4-face-ani {
+    33.33% {
+      background-image: url('./dolls/doll4/doll4_1@2x.png');
+    }
+
+    66.66% {
+      background-image: url('./dolls/doll4/doll4_2@2x.png');
+    }
+
+    100% {
+      background-image: url('./dolls/doll4/doll4_3@2x.png');
+    }
+  }
+</style>
+
+
+<body>
+
+
+  <div class="doll1">
+    <div class="face"></div>
+  </div>
+
+  <div class="doll2">
+    <div class="face"></div>
+  </div>
+  <div class="doll3">
+    <div class="face"></div>
+  </div>
+  <div class="doll4">
+    <div class="face"></div>
+  </div>
+
+
+</body>
+
+</html>
